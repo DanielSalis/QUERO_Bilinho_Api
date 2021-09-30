@@ -1,6 +1,6 @@
-class CreateTipoInstituicoes < ActiveRecord::Migration[5.2]
+class CreateTipoInstituicaos < ActiveRecord::Migration[5.2]
   def change
-    create_table :tipo_instituicoes do |t|
+    create_table :tipo_instituicaos do |t|
       t.text :nome
 
       t.timestamps

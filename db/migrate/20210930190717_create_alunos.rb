@@ -5,6 +5,8 @@ class CreateAlunos < ActiveRecord::Migration[5.2]
       t.text :cpf
       t.date :data_nascimento
       t.integer :telefone_celular
+      t.references :tipo_generos, null: false, foreign_key: true
+      t.references :meio_pagamentos, null: false, foreign_key: true
 
       t.timestamps
     end
