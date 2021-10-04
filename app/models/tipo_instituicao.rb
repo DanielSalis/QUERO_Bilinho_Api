@@ -1,5 +1,5 @@
 class TipoInstituicao < ApplicationRecord
-    validades :nome, 
+    validates :nome, 
         presence: true, 
         uniqueness: true
 end
