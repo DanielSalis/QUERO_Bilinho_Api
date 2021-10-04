@@ -6,6 +6,6 @@ class Matricula < ApplicationRecord
     validates :dia_vencimento, 
         presence: true
 
-    belongs_to :TipoInstituicao
-    belongs_to :Aluno
+    has_one :Instituicao
+    has_one :Aluno
 end
