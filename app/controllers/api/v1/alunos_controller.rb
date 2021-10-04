@@ -5,7 +5,7 @@ module Api
                 types = Aluno.all;
                 render json: {
                     status: 'success',
-                    message: 'Listando todas os alunos',
+                    message: 'Listando todos os alunos',
                     data: types
                 }, status: :ok
             end
