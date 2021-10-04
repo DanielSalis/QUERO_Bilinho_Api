@@ -8,7 +8,9 @@
 ```docker-compose up```
 
 ## Creating Database (necessary only in first time)
-```docker-compose run web rake db:create```
+1) ```docker-compose run web rake db:create```
+2) ```docker-compose run web rake db:migrate```
+3) ```docker-compose run web rake db:seed```
 
 ## Accessing application
 ```http://localhost:3000/```
