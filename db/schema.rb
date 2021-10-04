@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(version: 2021_09_30_190954) do
   create_table "instituicaos", force: :cascade do |t|
     t.text "nome", null: false
     t.text "cnpj"
-    t.bigint "tipo_instituicoes_id", null: false
+    t.bigint "tipo_instituicaos_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cnpj"], name: "index_instituicaos_on_cnpj", unique: true
     t.index ["nome"], name: "index_instituicaos_on_nome", unique: true
-    t.index ["tipo_instituicoes_id"], name: "index_instituicaos_on_tipo_instituicoes_id"
+    t.index ["tipo_instituicaos_id"], name: "index_instituicaos_on_tipo_instituicaos_id"
   end
 
   create_table "matriculas", force: :cascade do |t|
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_09_30_190954) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tipo_instituicoes", force: :cascade do |t|
+  create_table "tipo_instituicaos", force: :cascade do |t|
     t.text "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2021_09_30_190954) do
 
   add_foreign_key "alunos", "meio_pagamentos", column: "meio_pagamentos_id"
   add_foreign_key "alunos", "tipo_generos", column: "tipo_generos_id"
-  add_foreign_key "instituicaos", "tipo_instituicoes", column: "tipo_instituicoes_id"
+  add_foreign_key "instituicaos", "tipo_instituicaos", column: "tipo_instituicaos_id"
   add_foreign_key "matriculas", "alunos", column: "alunos_id"
   add_foreign_key "matriculas", "instituicaos", column: "instituicaos_id"
 end
