@@ -5,7 +5,7 @@ module Api
                 types = Matricula.all;
                 render json: {
                     status: 'success',
-                    message: 'Listando todas os alunos',
+                    message: 'Listando todas as matriculas',
                     data: types
                 }, status: :ok
             end
