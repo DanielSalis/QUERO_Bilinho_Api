@@ -10,6 +10,24 @@ module Api
                 }, status: :ok
             end
 
+            def destroy
+                begin
+                    matricula = Matricula.find_by(alunos_id: params[:id])
+                    matricula.destroy
+
+                    aluno = Aluno.find(params[:id])
+
+                    if aluno.destroy
+                        render json: {status: 'SUCCESS', message:'Aluno excluído', data: aluno},status: :ok
+                    else
+                        render json: {status: 'ERROR', message:'Problema ao excluir', data: aluno.errots},status: :ok
+                    end
+                  
+                    rescue Exception => e
+                        render json: {status: 'ERROR', message: e},status: :bad_request
+                  end
+			end
+
             def create
                 aluno = Aluno.new(alunos_params)
 
