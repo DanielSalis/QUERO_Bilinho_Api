@@ -10,6 +10,24 @@ module Api
                 }, status: :ok
             end
 
+            def destroy
+                begin
+                    matricula = Matricula.find_by(instituicaos_id: params[:id])
+                    matricula.destroy
+
+                    instituicao = Instituicao.find(params[:id])
+
+                    if instituicao.destroy
+                        render json: {status: 'SUCCESS', message:'Insituição excluída', data: instituicao},status: :ok
+                    else
+                        render json: {status: 'ERROR', message:'Problema ao excluir', data: instituicao.errots},status: :ok
+                    end
+                  
+                    rescue Exception => e
+                        render json: {status: 'ERROR', message: e},status: :bad_request
+                  end
+			end
+
             def create
             instituicao = Instituicao.new(instituicaos_params)
 
