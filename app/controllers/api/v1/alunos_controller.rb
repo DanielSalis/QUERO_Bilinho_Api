@@ -23,7 +23,7 @@ module Api
                     render json: {
                         status: 'ERROR',
                         message:'Aluno não pode ser criado',
-                        data:article.erros}, status: :unprocessable_entity
+                        data:aluno.errors.details}, status: :unprocessable_entity
 				end
 			end
             
